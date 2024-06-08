@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:14.1
+    ports:
+      - '8090:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: podecom
+      POSTGRES_PASSWORD: "pPblauxKDERok82Qi8VeEiz_jvJHENen"
+    volumes:
+      - podecom_data:/var/lib/postgresql/data
+  redis:
+    image: redis:6.2.6
+    ports:
+      - '8091:6379'
+    command: redis-server --requirepass "m1sngH6d7X0SKs384D0DvHgrosv4brIw"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+volumes:
+  podecom_data:
